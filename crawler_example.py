@@ -8,7 +8,8 @@ fake = Faker()
 
 def crawl_for_data():
     # Crawling for data
-    data = {"name": fake.name(),
+    data = {
+        "name": fake.name(),
         "gender": random.choice(["Male", "Female", "Non-binary"]),
         "age": random.randrange(1, 100),
         "job": fake.job(),
