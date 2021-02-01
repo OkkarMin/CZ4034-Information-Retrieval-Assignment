@@ -8,8 +8,7 @@ fake = Faker()
 
 def crawl_for_data():
     # Crawling for data
-    data = {
-        "name": fake.name(),
+    data = {"name": fake.name(),
         "gender": random.choice(["Male", "Female", "Non-binary"]),
         "age": random.randrange(1, 100),
         "job": fake.job(),
@@ -20,7 +19,7 @@ def crawl_for_data():
 
 
 def post_to_logstash(data_in_json):
-    logstash_http_endpoint = "http://54.255.247.142:5151"
+    logstash_http_endpoint = "http://irgroup13.ml:5151"
 
     requests.post(logstash_http_endpoint, json=data_in_json)
 
