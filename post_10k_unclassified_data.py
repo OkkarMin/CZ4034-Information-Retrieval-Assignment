@@ -18,14 +18,14 @@ with open("./data/all_unclassified_data_shuffled.csv") as csv_file:
     for index, row in enumerate(csv_reader):
 
         payload = {
-            "dataID": row["id"],
+            "dataID": index,
             "body": row["body"],
             "company": row["company"],
             "created_utc": row["created_utc"].replace(",", ""),
-            "score": row["score"],
+            "score": int(row["score"].replace(",", "")),
             "data_type": row["type"]
         }
 
-        if index < 8888:
+        if 3202 <= index < 8888:
             print(payload)
-            collection.add(payload)
+            collection.document(str(index)).set(payload)
