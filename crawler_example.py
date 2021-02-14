@@ -22,7 +22,9 @@ def crawl_for_data():
 def post_to_logstash(data_in_json):
     logstash_http_endpoint = "http://irgroup13.ml:5151"
 
-    requests.post(logstash_http_endpoint, json=data_in_json)
+    requests.post(logstash_http_endpoint,
+                  auth=("kibana-user", "kibana"),
+                  json=data_in_json)
 
 
 while True:
