@@ -1,0 +1,1 @@
+1. Get the redditConfig.ini file from Tammy
