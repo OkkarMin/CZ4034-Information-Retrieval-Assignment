@@ -26,6 +26,6 @@ with open("./data/all_unclassified_data_shuffled.csv") as csv_file:
             "data_type": row["type"]
         }
 
-        if 3202 <= index < 8888:
+        if 3000 < index < 6001:
             print(payload)
-            collection.document(str(index)).set(payload)
+            collection.add(payload)
