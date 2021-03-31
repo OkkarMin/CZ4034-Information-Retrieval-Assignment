@@ -52,6 +52,6 @@ with Diagram('Information Retrieval System', show=True):
         scrub_data >> logstash_unclassified >> elasticsearch << kibana
         logstash_classified >> elasticsearch
         labelled_firestore >> pre_processing_data >> classifier
-        scrub_data >> pre_processing_data_interprete >> classifier_interprete >> appsearch
+        scrub_data >> pre_processing_data_interprete >> classifier_interprete >> logstash_classified
         query_user >> Edge(label='query') >> websearch_ui >> appsearch
         elasticsearch >> appsearch
