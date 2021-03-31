@@ -1,10 +1,10 @@
 from diagrams import Cluster, Diagram, Edge
-from diagrams.programming.language import Python
-from diagrams.firebase.develop import Firestore
-from diagrams.programming.framework import React
-from diagrams.onprem.client import User, Users
 from diagrams.elastic.elasticsearch import Elasticsearch, Logstash, Kibana
 from diagrams.elastic.enterprisesearch import AppSearch
+from diagrams.programming.language import Python
+from diagrams.programming.framework import React
+from diagrams.firebase.develop import Firestore
+from diagrams.onprem.client import User, Users
 
 with Diagram('Information Retrieval System', show=True):
     with Cluster('Obtaining Data'):
@@ -46,12 +46,12 @@ with Diagram('Information Retrieval System', show=True):
             websearch_ui = React('websearch-ui')
             query_user = User('User')
 
-        crawlers >> scrub_data >> unlabelled_firestore
-        unlabelled_firestore >> labeller_web_app
-        labellers >> labeller_web_app >> labelled_firestore
-        scrub_data >> logstash_unclassified >> elasticsearch >> kibana
-        logstash_classified >> elasticsearch
-        labelled_firestore >> pre_processing_data >> classifier
-        scrub_data >> pre_processing_data_interprete >> classifier_interprete >> logstash_classified
-        query_user >> Edge(label='query') >> websearch_ui << appsearch
-        elasticsearch >> appsearch
+    crawlers >> scrub_data >> unlabelled_firestore
+    unlabelled_firestore >> labeller_web_app
+    labellers >> labeller_web_app >> labelled_firestore
+    scrub_data >> logstash_unclassified >> elasticsearch >> kibana
+    logstash_classified >> elasticsearch
+    labelled_firestore >> pre_processing_data >> classifier
+    scrub_data >> pre_processing_data_interprete >> classifier_interprete >> logstash_classified
+    query_user >> Edge(label='query') >> websearch_ui << appsearch
+    elasticsearch >> appsearch
