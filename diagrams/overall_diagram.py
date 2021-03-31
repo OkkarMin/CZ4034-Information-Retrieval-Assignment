@@ -49,9 +49,9 @@ with Diagram('Information Retrieval System', show=True):
         crawlers >> scrub_data >> unlabelled_firestore
         unlabelled_firestore >> labeller_web_app
         labellers >> labeller_web_app >> labelled_firestore
-        scrub_data >> logstash_unclassified >> elasticsearch << kibana
+        scrub_data >> logstash_unclassified >> elasticsearch >> kibana
         logstash_classified >> elasticsearch
         labelled_firestore >> pre_processing_data >> classifier
         scrub_data >> pre_processing_data_interprete >> classifier_interprete >> logstash_classified
-        query_user >> Edge(label='query') >> websearch_ui >> appsearch
+        query_user >> Edge(label='query') >> websearch_ui << appsearch
         elasticsearch >> appsearch
